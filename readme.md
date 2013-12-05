@@ -1,0 +1,1 @@
+Idomértékes verslábak, sorfajták, morák stb.
