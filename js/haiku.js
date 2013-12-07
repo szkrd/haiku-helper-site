@@ -1,6 +1,5 @@
-/*global haiku*/
-
-var haiku = (function () {
+var haiku = window.haiku || {};
+$.extend(haiku, (function () {
     "use strict";
 
     var vowels, longVowels, letters, shortConsonants, doubleConsonants, collapseDoubleConsonants,
@@ -34,15 +33,12 @@ var haiku = (function () {
         return parts;
     }; // }}}
 
-    splitToSyllLengths = function (s, asMarks) { // {{{
+    splitToSyllLengths = function (s, _asMarks) { // {{{
         var raw = "", i, l;
         s = splitToSyllables(s);
         for (i = 0, l = s.length; i < l; i += 1) {
-            if (asMarks) {
-                raw += syllableLength(s[i]) ? "-" : "U";
-            } else {
-                raw += syllableLength(s[i]);
-            }
+            raw += syllableLength(s[i]) ? "-" : "U";
+            //raw += syllableLength(s[i]); 0 vs 1
         }
         return raw;
     }; // }}}
@@ -107,4 +103,4 @@ var haiku = (function () {
         splitToSyllLengths: splitToSyllLengths,
         vowelsInWord: vowelsInWord
     };
-}());
+}()));

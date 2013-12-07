@@ -3,7 +3,7 @@
 window.app = (function (H) {
     "use strict";
     var getTextAsLines, onTextChange, letterIsVowel, vowelsInWord, vowelsPerLinesStat,
-        saveToStorage, restoreFromStorage, store, hasNoVowels,
+        syllLengthStat, saveToStorage, restoreFromStorage, store, hasNoVowels,
         vowels, lsKey, init;
 
     // Az időmértékes verselés alapegysége a versláb, melynek mértékegysége a mora.
@@ -38,6 +38,16 @@ window.app = (function (H) {
         $("#VowelCountStat").html(vCountStr);
     };
 
+    syllLengthStat = function () {
+        var lines = getTextAsLines(), i, l, line, vCountStr = "", count;
+        for (i = 0, l = lines.length; i < l; i += 1) {
+            line = $.trim(lines[i]);
+            count = H.splitToSyllLengths(line, true);
+            vCountStr += (line ? count : "&nbsp;") + "<br />\n";
+        }
+        $("#SyllLengthStat").html(vCountStr);
+    };
+
     store = {
         save: function () {
             localStorage.setItem(lsKey, $("#Text").val());
@@ -49,6 +59,7 @@ window.app = (function (H) {
 
     onTextChange = function () {
         vowelsPerLinesStat();
+        syllLengthStat();
         store.save();
     };
 

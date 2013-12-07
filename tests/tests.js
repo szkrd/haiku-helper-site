@@ -37,29 +37,59 @@ $(function () {
     describe("splitToSyllLengths", function () {
         var f = H.splitToSyllLengths;
         it("should split a word to syllables length markers", function() {
-            expect(f("csoki", true)).toBe("UU");
-            expect(f("szerepe", true)).toBe("UUU");
-            expect(f("vadász", true)).toBe("U-");
-            expect(f("Béni", true)).toBe("-U");
+            expect(f("csoki")).toBe("UU");
+            expect(f("szerepe")).toBe("UUU");
+            expect(f("vadász")).toBe("U-");
+            expect(f("Béni")).toBe("-U");
 
-            expect(f("csodaszép", true)).toBe("UU-");
-            expect(f("éjszaka", true)).toBe("-UU");
-            expect(f("forró", true)).toBe("--");
-            expect(f("csiribiri", true)).toBe("UUUU");
-            expect(f("ki látta?", true)).toBe("U-U");
+            expect(f("csodaszép")).toBe("UU-");
+            expect(f("éjszaka")).toBe("-UU");
+            expect(f("forró")).toBe("--");
+            expect(f("csiribiri")).toBe("UUUU");
+            expect(f("ki látta?")).toBe("U-U");
 
-            expect(f("valóság", true)).toBe("U--");
-            expect(f("őrjöngve", true)).toBe("--U");
-            expect(f("óh, az éj!", true)).toBe("-U-");
-            expect(f("csodaparipa", true)).toBe("UUUUU");
-            expect(f("hársfatea", true)).toBe("-UUU");
-            expect(f("borogatás", true)).toBe("UUU-");
+            expect(f("valóság")).toBe("U--");
+            expect(f("őrjöngve")).toBe("--U");
+            expect(f("óh, az éj!")).toBe("-U-");
+            expect(f("csodaparipa")).toBe("UUUUU");
+            expect(f("hársfatea")).toBe("-UUU");
+            expect(f("borogatás")).toBe("UUU-");
 
-            expect(f("szerelemnek", true)).toBe("UU-U"); // UU--???
-            expect(f("álombeli", true)).toBe("--UU");
-            expect(f("barangolni", true)).toBe("U--U");
-            expect(f("alszik a vár", true)).toBe("-UU-");
-            expect(f("száncsengő", true)).toBe("---");
+            expect(f("szerelemnek")).toBe("UU-U"); // UU--???
+            expect(f("álombeli")).toBe("--UU");
+            expect(f("barangolni")).toBe("U--U");
+            expect(f("alszik a vár")).toBe("-UU-");
+            expect(f("száncsengő")).toBe("---");
+
+            expect(f("Gyűlölöm azt, aki telt kupa mellett bort iszogatván")).toBe("-UU-UU-UU---UU--");
+            expect(f("háborut emleget és lélekölő viadalt.")).toBe("-UU-UU--UU-UU-");
+        });
+        describe("compareFeet", function () {
+            var comp = H.compareFeet;
+            it("should split a line to syllables and then compare their feet with predefined schemes", function() {
+
+                expect(
+                    comp("Roskad a kásás hó, cseperészget a bádogeresz már", "hexameter")
+                ).toBe(true);
+
+                expect(
+                    comp("Gyűlölöm azt, aki telt kupa mellett bort iszogatván", "hexameter") &&
+                    comp("háborut emleget és lélekölő viadalt.", "pentameter")
+                ).toBe(true);
+                expect(comp("Gyűlölöm azt, aki telt kupa mellett bort iszogatván\nháborut emleget és lélekölő viadalt.", "disztichon")).toBe(true);
+
+                expect(
+                    comp("Bús düledékeiden, Husztnak romvára megállék!", "hexameter") &&
+                    comp("Csend vala felleg alól szállt fel az éjjeli hold.", "pentameter")
+                ).toBe(true);
+                expect(comp("Bús düledékeiden, Husztnak romvára megállék!\nCsend vala felleg alól szállt fel az éjjeli hold.", "disztichon")).toBe(true);
+
+                /*expect(
+                    comp("Add te Psychéd nekem, Amor, ah add! s vedd lantomat érte,", "hexameter") &&
+                    comp("háborut emleget és lélekölő viadalt.", "pentameter")
+                ).toBe(true);
+                */
+            });
         });
     });
 
