@@ -1,11 +1,20 @@
 body, html { margin: 0; padding: 0; font-family: "Courier New", Courier, monospace; }
 body, html, textarea { font-size: 14px; line-height: 20px; }
-.topEdge { position: absolute; width: 100%; height: 32px; background-color: #DBBD75; }
+
+.topEdge { position: absolute; width: 100%; height: 32px; background-color: #DBBD75; display: none; }
 .helper { position: relative; z-index: 2; }
 .helper .text { width: 500px; height: 1000px; border: 0; margin: 0 5px 0 0; margin: 0; padding: 0; }
 .helper .text:focus { outline: 0; }
-.helper thead td { color: #5F2F23; background-color: #DBBD75; font-size: 10px; font-family: Arial, Helvetica, sans-serif; line-height: 10px; }
-.helper thead td label { padding: 5px; display: block; height: 22px; }
+.helper thead td { color: #5F2F23; background-color: #DBBD75; font-size: 11px; font-family: Arial, Helvetica, sans-serif; line-height: 16px; vertical-align: middle; }
+.helper thead td label { display: inline-block; padding: 2px 5px; }
 .helper .stat { color: #7A7227; text-align: center; font-size: 16px; white-space: nowrap; }
 .helper td { vertical-align: top; }
 .helper tbody td { border-right: 1px solid #FFF0CE; }
+
+.hoverable { position: relative; cursor: default; display: inline-block; border-radius: 4px; }
+span.hoverable { padding: 0 3px; }
+.tooltip { position: absolute; opacity: 0; white-space: nowrap; background-color: #EAD8AE; z-index: -1; padding: 2px; font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 12px; height: 12px; top: -13px; left: 0; border-radius: 2px; }
+.hoverable:hover { color: red; }
+.hoverable:hover .tooltip { opacity: 1; z-index: 2; color: #000; }
+
+tbody > tr, textarea { background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAUCAYAAABMDlehAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OTlFOTg0RkQ1RjkwMTFFM0JDMzlEMDA1QzIxNkYxOEIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OTlFOTg0RkU1RjkwMTFFM0JDMzlEMDA1QzIxNkYxOEIiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5OUU5ODRGQjVGOTAxMUUzQkMzOUQwMDVDMjE2RjE4QiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5OUU5ODRGQzVGOTAxMUUzQkMzOUQwMDVDMjE2RjE4QiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PiFnsYMAAAAaSURBVHjaYvj//z8DEwMQ0IZ4//79f4AAAwA2HwbwfGfg3QAAAABJRU5ErkJggg==) 0 0; }

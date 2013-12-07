@@ -39,13 +39,22 @@ window.app = (function (H) {
     };
 
     syllLengthStat = function () {
-        var lines = getTextAsLines(), i, l, line, vCountStr = "", count;
+        var lines = getTextAsLines(), i, l, line, vCountStr = "", lngth, sylls = [];
         for (i = 0, l = lines.length; i < l; i += 1) {
             line = $.trim(lines[i]);
-            count = H.splitToSyllLengths(line, true);
-            vCountStr += (line ? count : "&nbsp;") + "<br />\n";
+            sylls = sylls.concat(H.splitToSyllables(line));
+            lngth = H.splitToSyllLengths(line).replace(/(.)/g, "<span class='hoverable'>$1</span>");
+            vCountStr += (line ? lngth : "&nbsp;") + "<br />\n";
         }
         $("#SyllLengthStat").html(vCountStr);
+        $("#SyllLengthStat span.hoverable").each(function (i, el) {
+            el = $(el);
+            var tooltip;
+            if (sylls[i]) {
+                tooltip = $("<span class='tooltip'></span>");
+                tooltip.text(sylls[i]).appendTo(el);
+            }
+        });
     };
 
     store = {
