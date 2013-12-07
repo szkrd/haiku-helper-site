@@ -53,6 +53,7 @@ window.app = (function (H) {
             if (sylls[i]) {
                 tooltip = $("<span class='tooltip'></span>");
                 tooltip.text(sylls[i]).appendTo(el);
+                el.addClass(H.vowelIsLowOrHigh(sylls[i]));
             }
         });
     };

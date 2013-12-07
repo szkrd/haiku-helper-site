@@ -2,15 +2,17 @@ var haiku = window.haiku || {};
 $.extend(haiku, (function () {
     "use strict";
 
-    var vowels, longVowels, letters, shortConsonants, doubleConsonants, collapseDoubleConsonants,
-        splitToSyllables, splitToSyllLengths, syllableLength, letterIsVowel, vowelsInWord,
-        clearNonLetters;
+    var vowels, longVowels, lowVowels, highVowels, letters, shortConsonants, doubleConsonants,
+        collapseDoubleConsonants, splitToSyllables, splitToSyllLengths, vowelIsLowOrHigh,
+        syllableLength, letterIsVowel, vowelsInWord, clearNonLetters;
 
-    shortConsonants = "qwrtzpsdghjklxcvbnm";
+    shortConsonants = "qwrtzpsdghjklxcvbnmf";
     doubleConsonants = "gy,sz,ty,ly,ny,cs,dz,dzs,zs";
     //longDoubleConsonants = "ssz,tty,lly,nny";
     vowels = "eéöőüűiíaáoóuú";
     longVowels = "éáűőóú";
+    lowVowels = "aáoóuú";
+    highVowels = "eéiíöőüű";
 
     splitToSyllables = function (s) { // {{{
         var parts = [], part = "", i, l, chr, add;
@@ -87,6 +89,29 @@ $.extend(haiku, (function () {
         return vowels.indexOf(chr.toLowerCase()) > -1;
     }; // }}}
 
+
+    // works with syllables as well
+    vowelIsLowOrHigh = function (chr) { //{{{
+        var i, l, s, sFiltered;
+        if (chr.length > 1) {
+            s = chr.split("");
+            for (i = 0, l = s.length; i < l; i += 1) {
+                if (letterIsVowel(s[i])) {
+                    sFiltered = s[i];
+                }
+            }
+            if (sFiltered) {
+                chr = sFiltered;
+            }
+        }
+        if (lowVowels.indexOf(chr.toLowerCase()) > -1)
+            return "low";
+        if (highVowels.indexOf(chr.toLowerCase()) > -1)
+            return "high";
+        // may return undefined
+    }; //}}}
+
+
     vowelsInWord = function (s) { // {{{
         var i, l, c = 0;
         s = s.split("");
@@ -101,6 +126,7 @@ $.extend(haiku, (function () {
     return {
         splitToSyllables: splitToSyllables,
         splitToSyllLengths: splitToSyllLengths,
+        vowelIsLowOrHigh: vowelIsLowOrHigh,
         vowelsInWord: vowelsInWord
     };
 }()));

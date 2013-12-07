@@ -91,6 +91,8 @@ $(function () {
                 */
             });
         });
+
+        //todo: vowelIsLowOrHigh
     });
 
     jasmine.getEnv().addReporter(new jasmine.ConsoleReporter());
