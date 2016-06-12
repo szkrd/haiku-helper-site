@@ -1,15 +1,14 @@
 body, html { margin: 0; padding: 0; font-family: "Courier New", Courier, monospace; }
-body, html, textarea { font-size: 14px; line-height: 20px; }
+body, html, textarea, td { font-size: 14px; line-height: 20px; }
 
-.topEdge { position: absolute; width: 100%; height: 32px; background-color: #DBBD75; display: none; }
 .helper { position: relative; z-index: 2; }
 .helper .text { width: 500px; height: 1000px; border: 0; margin: 0 5px 0 0; margin: 0; padding: 0; }
 .helper .text:focus { outline: 0; }
-.helper thead td { color: #5F2F23; background-color: #DBBD75; font-size: 11px; font-family: Arial, Helvetica, sans-serif; line-height: 16px; vertical-align: middle; }
+.helper thead td { color: #fff; background-color: #aaa; font-size: 11px; font-family: Arial, Helvetica, sans-serif; line-height: 16px; vertical-align: middle; }
 .helper thead td label { display: inline-block; padding: 2px 5px; }
-.helper .stat { color: #7A7227; text-align: center; font-size: 16px; white-space: nowrap; }
+.helper .stat { color: #aaa; text-align: center; font-size: 16px; white-space: nowrap; }
 .helper td { vertical-align: top; }
-.helper tbody td { border-right: 1px solid #FFF0CE; }
+.helper tbody td { border-right: 1px solid #eee; }
 
 .hoverable { position: relative; cursor: default; display: inline-block; border-radius: 4px; }
 span.hoverable { padding: 0 3px; }

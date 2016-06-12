@@ -1,1 +1,16 @@
-IdomÈrtÈkes versl·bak, sorfajt·k, mor·k stb.
+# haiku-helper-site
+
+This is a standalone website, running on koa static.
+
+It's extremely simple, has one page only, can count vowels and mark
+moras in each and every line in an editable field,
+which useful for analyzing or reproducing antique poetry.
+
+## Example
+
+```
+Gy≈±l√∂l√∂m azt, aki telt kupa mellett bort iszogatv√°n |
+  - U U  -    U U  -   U  U  -  -    -   U  U -  -  | 16
+h√°borut emleget √©s l√©lek√∂l≈ë viadalt.                |
+ - U U  -  U U  -   - U U -  UU -                   | 14
+```
