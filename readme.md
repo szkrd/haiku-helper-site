@@ -14,3 +14,12 @@ Gyűlölöm azt, aki telt kupa mellett bort iszogatván |
 háborut emleget és lélekölő viadalt.                |
  - U U  -  U U  -   - U U -  UU -                   | 14
 ```
+
+## Usage
+
+The fastest way to fire it up locally is `npm i && npm run dev`:
+listens on port 8080 at localhost.
+
+## TODO
+
+Publish to github as a static site. Will do sometime :)
