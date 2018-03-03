@@ -1672,7 +1672,7 @@
 
 	const store = {
 	  save () {
-	    localStorage.setItem(LSKEY, $('#Text').val())
+	    localStorage.setItem(LSKEY, $('#Text').val() || '')
 	  },
 	  restore () {
 	    $('#Text').val(localStorage.getItem(LSKEY) || '')
