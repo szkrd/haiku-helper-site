@@ -19,7 +19,7 @@ const LSKEY = 'szkrd/haiku-helper-site'
 
 // for contentEditable we may something more sophisticated
 function getTextAsLines () {
-  var text = $('#Text').val()
+  let text = $('#Text').val() || ''
   text = text.replace(/\r\n/g, '\n') // yes, ie
   return text.split(/\n/)
 }
