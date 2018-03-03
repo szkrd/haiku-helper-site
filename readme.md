@@ -1,6 +1,7 @@
 # haiku-helper-site
 
-This is a standalone website, running on koa static.
+This is a standalone website, running on koa static, also
+available as a [github static page](https://szkrd.github.io/haiku-helper-site/).
 
 It's extremely simple, has one page only, can count vowels and mark
 moras in each and every line in an editable field,
@@ -19,7 +20,3 @@ háborut emleget és lélekölő viadalt.                |
 
 The fastest way to fire it up locally is `npm i && npm run dev`:
 listens on port 8080 at localhost.
-
-## TODO
-
-Publish to github as a static site. Will do sometime :)

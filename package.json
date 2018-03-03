@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node .",
     "test": "mocha 'client/js/**/*.spec.js'",
-    "build": "webpack --progress --colors",
+    "build": "webpack --progress --colors && git subtree push --prefix client origin gh-pages",
     "dev": "webpack-dev-server --inline --hot --colors --progress --content-base client/ && open http://localhost:8080",
     "lint": "eslint client/js"
   },
